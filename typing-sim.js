@@ -1,8 +1,8 @@
-const currentCursor = [];
+const currentCursor = {};
 
 const typeOut = (phrase, target) => {
 
-    if(currentCursor[0]) {
+    if(currentCursor.position) {
         removeCurrentCursor();
     }
 
@@ -31,8 +31,8 @@ const randDelay = (multiplier) => {
 const toggleCursor = (target) => {
 
     let id = setInterval(() => {
-        let lastCharIndex = target.innerText.length - 1;
-        target.innerText[lastCharIndex] === "_" ? 
+        let lastCharIdx = target.innerText.length - 1;
+        target.innerText[lastCharIdx] === "_" ? 
         target.innerText = target.innerText.slice(0, -1) :
         target.innerText += "_";
     }, 500)
@@ -41,15 +41,15 @@ const toggleCursor = (target) => {
 }
 
 const setCursorPosition = (target, id) => {
-    currentCursor[0] = target;
-    currentCursor[1] = id;
+    currentCursor.position = target;
+    currentCursor.intervalId = id;
 }
 
 const removeCurrentCursor = () => {
-    clearInterval(currentCursor[1]);
-    let target = currentCursor[0];
-    let lastCharIndex = target.innerText.length - 1;
-    if(target.innerText[lastCharIndex] === "_") {
+    clearInterval(currentCursor.intervalId);
+    let target = currentCursor.position;
+    let lastCharIdx = target.innerText.length - 1;
+    if(target.innerText[lastCharIdx] === "_") {
         target.innerText = target.innerText.slice(0, -1);
     }
 }
