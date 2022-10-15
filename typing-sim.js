@@ -1,20 +1,25 @@
 // Get target element
 const testDiv = document.getElementById("box1");
 
-// Make text appear 
 const typeOut = (phrase, target) => {
-    let i = 0;
-    let id = setInterval(() => {
-        if(i < phrase.length) {
-            console.log(phrase[i]);
+    for(let i = 0; i < phrase.length; i++) {
+        setTimeout(() => {
+            if(phrase[i] === " ") {
+                target.innerHTML += "&nbsp;";
+            }
             target.innerText = target.innerText + phrase[i];
-            i++;
-        } else {
-            clearInterval(id);
-        }
-    }, 150); 
+        }, randDelay(i))
+        // target.innerText = target.innerText + phrase[i];
+    }
+}
+
+// Random delay function
+const randDelay = (multiplier) => {
+    let delay = (Math.random() + multiplier) * 75;
+    console.log(delay);
+    return delay;
 }
 
 // Test
-let phrase = "Hello World";
+let phrase = "Hello World, finally this thing is working...";
 typeOut(phrase, testDiv);
