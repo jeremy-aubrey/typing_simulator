@@ -4,9 +4,13 @@ body {
     padding: 8px;
 }
 
-#box1 {
+#box1, #box2 {
     border: 2px solid black;
     height: 50px;
     border-radius: 5px;
     padding: 8px;
+    margin-bottom: 8px;
+    background-color: rgb(37, 37, 37);
+    color: greenyellow;
+    font-weight: bold;
 }
