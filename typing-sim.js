@@ -5,6 +5,8 @@ const typeOut = (phrase, target) => {
     if(currentCursor.position) {
         removeCurrentCursor();
     }
+    
+    setCursorPosition(target);
 
     for(let i = 0; i < phrase.length; i++) {
         setTimeout(() => {
@@ -14,7 +16,7 @@ const typeOut = (phrase, target) => {
                 target.innerText = target.innerText + phrase[i];
             }
 
-            if(i === phrase.length - 1) {
+            if(i === phrase.length - 1 && currentCursor.position === target) {
                 toggleCursor(target);
             }
         }, randDelay(i))
@@ -37,11 +39,14 @@ const toggleCursor = (target) => {
         target.innerText += "_";
     }, 500)
 
-    setCursorPosition(target, id);
+    setCursorId(id);
 }
 
-const setCursorPosition = (target, id) => {
+const setCursorPosition = (target) => {
     currentCursor.position = target;
+}
+
+const setCursorId = (id) => {
     currentCursor.intervalId = id;
 }
 
