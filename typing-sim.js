@@ -9,7 +9,6 @@ const setCursorId = (id) => {
 }
 const typeOut = (phrase, target) => {
     
-    clearText(target);
     if(currentCursor.position) {
         removeCurrentCursor();
     }
@@ -59,6 +58,9 @@ const removeCurrentCursor = () => {
     }
 }
 
-const clearText = (target) => {
-    target.innerText = "";
+const clearText = (...targets) => {
+    for(let target of targets) {
+        target.innerText = "";
+
+    }
 }

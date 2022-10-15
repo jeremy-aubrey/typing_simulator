@@ -1,16 +1,24 @@
 
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:monospace;
     padding: 8px;
 }
 
-#box1, #box2 {
+#box1 {
     border: 2px solid black;
-    height: 50px;
+    height: 1000px;
     border-radius: 5px;
-    padding: 8px;
+    padding: 15px;
     margin-bottom: 8px;
     background-color: rgb(37, 37, 37);
-    color: rgb(47, 255, 193);
+    color: rgb(255, 255, 255);
     font-weight: bold;
+}
+
+#type1 {
+    font-size: 50px;
+}
+
+#type2 {
+    font-size: 30px;
 }
